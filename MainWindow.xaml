@@ -1,0 +1,38 @@
+﻿<Window x:Class="ASasitharan_NETD3200_Lab2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ASasitharan_NETD3200_Lab2"
+        mc:Ignorable="d"
+        Title="Midsize LLP" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"></ColumnDefinition>
+          <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Orientation="Vertical">
+            <ListView Height="200">
+                <ListViewItem x:Name="lsviLendOut" Content="Lend out" Height="100">
+
+                </ListViewItem>
+                <ListViewItem x:Name="lsviViewLentOut" Content="View Lent Out" Height="100"></ListViewItem>
+            </ListView>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Orientation="Vertical">
+            <Label x:Name="lblName" Content="Name: "></Label>
+            <TextBox x:Name="txtName"></TextBox>
+
+          <Label x:Name="lblEmployeeID" Content="EmployeeID: "></Label>
+          <TextBox x:Name="txtEmployeeID"></TextBox>
+
+          <Label x:Name="lblDescEquipment" Content="Desc of Equipment: "></Label>
+          <TextBox x:Name="txtDescEquipment"></TextBox>
+
+          <Label x:Name="lblPhoneNum" Content="Contact Phone #: "></Label>
+          <TextBox x:Name="txtPhoneNum"></TextBox>
+
+            <Button x:Name="btnAdd" Content="Add to Database" Height="50" Width="150" Margin="50"></Button>
+        </StackPanel>
+    </Grid>
+</Window>
