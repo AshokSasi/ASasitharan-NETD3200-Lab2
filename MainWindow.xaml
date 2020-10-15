@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ASasitharan_NETD3200_Lab2"
         mc:Ignorable="d"
         Title="Midsize LLP" Height="450" Width="800">
-    <Grid x:Name="MainWindowName">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"></ColumnDefinition>
           <ColumnDefinition></ColumnDefinition>
@@ -20,19 +20,10 @@
             </ListView>
         </StackPanel>
         <StackPanel Grid.Column="1" Orientation="Vertical">
-            <Label Content="Name: " Target="{Binding ElementName=txtName}"></Label>
-            <TextBox Name="txtName"></TextBox>
-
-            <Label Content="EmployeeID: " Target="{Binding ElementName=txtEmployeeID}"></Label>
-          <TextBox Name="txtEmployeeID"></TextBox>
-
-            <Label Content="Desc of Equipment: " Target="{Binding ElementName=txtDescEquipment}"></Label>
-          <TextBox Name="txtDescEquipment"></TextBox>
-
-            <Label Content="Contact Phone #: " Target="{Binding ElementName=txtPhoneNum}"></Label>
-          <TextBox Name="txtPhoneNum"></TextBox>
-
-            <Button x:Name="btnAdd" Content="Add to Database" Height="50" Width="150" Margin="50" Click="btnAdd_Click"></Button>
+            
         </StackPanel>
+        <Grid Grid.Column="1" x:Name="MainContentPanel">
+
+        </Grid>
     </Grid>
 </Window>

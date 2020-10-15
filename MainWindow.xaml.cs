@@ -26,37 +26,44 @@ namespace ASasitharan_NETD3200_Lab2
             InitializeComponent();
         }
 
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                int ID = int.Parse(txtEmployeeID.Text);
-                string connectString = Properties.Settings.Default.connect_string;
-                SqlConnection conn = new SqlConnection(connectString);
-                conn.Open();
-                string insertQuery = "INSERT INTO equipment (name, empID, description, phone) VALUES('" + txtName.Text + "', '" + ID + "', '" + txtDescEquipment.Text  + "', '" + txtPhoneNum.Text + "')";
-                SqlCommand command = new SqlCommand(insertQuery, conn);
-                command.ExecuteNonQuery();
-                conn.Close();
-                MessageBox.Show("Added a record");
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }
+        //private void btnAdd_Click(object sender, RoutedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        int ID = int.Parse(txtEmployeeID.Text);
+        //        string connectString = Properties.Settings.Default.connect_string;
+        //        SqlConnection conn = new SqlConnection(connectString);
+        //        conn.Open();
+        //        string insertQuery = "INSERT INTO equipment (name, empID, description, phone) VALUES('" + txtName.Text + "', '" + ID + "', '" + txtDescEquipment.Text  + "', '" + txtPhoneNum.Text + "')";
+        //        SqlCommand command = new SqlCommand(insertQuery, conn);
+        //        command.ExecuteNonQuery();
+        //        conn.Close();
+        //        MessageBox.Show("Added a record");
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        MessageBox.Show(ex.ToString());
+        //    }
+        //}
 
         private void ControlList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ListView listView = e.Source as ListView;
             if(listView !=null)
             {
-                MainWindowName.Children.Clear();
+                MainContentPanel.Children.Clear();
+
+                if(listView.SelectedItem.Equals(lsviLendOut))
+                {
+                    Control controlAddRecord = new AddData();
+                    this.MainContentPanel.Children.Add(controlAddRecord);
+                }
                 if(listView.SelectedItem.Equals(lsviViewLentOut))
                 {
                     Control controlViewLent = new ViewLent();
-                    this.MainWindowName.Children.Add(controlViewLent);
+                    this.MainContentPanel.Children.Add(controlViewLent);
                 }
+               
             }
         }
     }
