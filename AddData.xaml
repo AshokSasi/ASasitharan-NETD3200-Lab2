@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+      <!--This stackpanel holds the textboxes and labels used to enter informaation -->
       <StackPanel Orientation="Vertical">
         <Label Content="Name: " Target="{Binding ElementName=txtName}"></Label>
         <TextBox Name="txtName"></TextBox>
@@ -19,7 +20,7 @@
 
         <Label Content="Contact Phone #: " Target="{Binding ElementName=txtPhoneNum}"></Label>
         <TextBox Name="txtPhoneNum"></TextBox>
-
+<!--The button that adds all the data to the table-->
         <Button x:Name="btnAdd" Content="Add to Database" Height="50" Width="150" Margin="50" Click="btnAdd_Click"></Button>
       </StackPanel>
     </Grid>

@@ -11,6 +11,7 @@
             <ColumnDefinition Width="250"></ColumnDefinition>
           <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
+      <!-- stack panel that holds the listview items for Lend out and View Lent Out-->
         <StackPanel Grid.Column="0" Orientation="Vertical">
             <ListView x:Name="ControlList" SelectionChanged="ControlList_SelectionChanged">
                 <ListViewItem x:Name="lsviLendOut" Content="Lend out" Height="100">
@@ -22,6 +23,7 @@
         <StackPanel Grid.Column="1" Orientation="Vertical">
             
         </StackPanel>
+      <!--The second grid which will host the AddData and the ViewLent pages -->
         <Grid Grid.Column="1" x:Name="MainContentPanel">
 
         </Grid>

@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Name: Ashok Sasitharan
+ * Student Number: 100745484
+ * Date: October 14 2020
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -50,18 +55,23 @@ namespace ASasitharan_NETD3200_Lab2
                                     string connectString = Properties.Settings.Default.connect_string;
                                     SqlConnection conn = new SqlConnection(connectString);
                                     conn.Open();
+                                    //create the insert statement
                                     string insertQuery = "INSERT INTO equipment (name, empID, description, phone) VALUES('" + txtName.Text + "', '" + employeeID + "', '" + txtDescEquipment.Text + "', '" + txtPhoneNum.Text + "')";
+                                    //create a new command
                                     SqlCommand command = new SqlCommand(insertQuery, conn);
+                                    //execute the query
                                     command.ExecuteNonQuery();
+                                    //end the connection
                                     conn.Close();
                                     MessageBox.Show("Added a record");
-                                    //clears all of the textboxes
+                                    //clears all of the textboxes and set the focus on Name
                                     txtName.Text = "";
                                     txtPhoneNum.Text = "";
                                     txtEmployeeID.Text = "";
                                     txtDescEquipment.Text = "";
                                     txtName.Focus();
                                 }
+                                //all of the error messages are below
                                 else
                                 {
                                     MessageBox.Show("Phone Number cannot be empty.");
