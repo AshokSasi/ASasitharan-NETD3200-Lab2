@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:ASasitharan_NETD3200_Lab2"
         mc:Ignorable="d"
         Title="Midsize LLP" Height="450" Width="800">
-    <Grid>
+    <Grid x:Name="MainWindowName">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"></ColumnDefinition>
           <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Orientation="Vertical">
-            <ListView Height="200">
+            <ListView x:Name="ControlList" Height="200" SelectionChanged="ControlList_SelectionChanged">
                 <ListViewItem x:Name="lsviLendOut" Content="Lend out" Height="100">
 
                 </ListViewItem>
@@ -20,19 +20,19 @@
             </ListView>
         </StackPanel>
         <StackPanel Grid.Column="1" Orientation="Vertical">
-            <Label x:Name="lblName" Content="Name: "></Label>
-            <TextBox x:Name="txtName"></TextBox>
+            <Label Content="Name: " Target="{Binding ElementName=txtName}"></Label>
+            <TextBox Name="txtName"></TextBox>
 
-          <Label x:Name="lblEmployeeID" Content="EmployeeID: "></Label>
-          <TextBox x:Name="txtEmployeeID"></TextBox>
+            <Label Content="EmployeeID: " Target="{Binding ElementName=txtEmployeeID}"></Label>
+          <TextBox Name="txtEmployeeID"></TextBox>
 
-          <Label x:Name="lblDescEquipment" Content="Desc of Equipment: "></Label>
-          <TextBox x:Name="txtDescEquipment"></TextBox>
+            <Label Content="Desc of Equipment: " Target="{Binding ElementName=txtDescEquipment}"></Label>
+          <TextBox Name="txtDescEquipment"></TextBox>
 
-          <Label x:Name="lblPhoneNum" Content="Contact Phone #: "></Label>
-          <TextBox x:Name="txtPhoneNum"></TextBox>
+            <Label Content="Contact Phone #: " Target="{Binding ElementName=txtPhoneNum}"></Label>
+          <TextBox Name="txtPhoneNum"></TextBox>
 
-            <Button x:Name="btnAdd" Content="Add to Database" Height="50" Width="150" Margin="50"></Button>
+            <Button x:Name="btnAdd" Content="Add to Database" Height="50" Width="150" Margin="50" Click="btnAdd_Click"></Button>
         </StackPanel>
     </Grid>
 </Window>
