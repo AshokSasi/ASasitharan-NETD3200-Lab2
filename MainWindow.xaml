@@ -12,7 +12,7 @@
           <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Orientation="Vertical">
-            <ListView x:Name="ControlList" Height="200" SelectionChanged="ControlList_SelectionChanged">
+            <ListView x:Name="ControlList" SelectionChanged="ControlList_SelectionChanged">
                 <ListViewItem x:Name="lsviLendOut" Content="Lend out" Height="100">
 
                 </ListViewItem>

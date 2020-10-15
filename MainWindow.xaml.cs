@@ -24,27 +24,11 @@ namespace ASasitharan_NETD3200_Lab2
         public MainWindow()
         {
             InitializeComponent();
+            Control controlAddRecord = new AddData();
+            MainContentPanel.Children.Add(controlAddRecord);
         }
 
-        //private void btnAdd_Click(object sender, RoutedEventArgs e)
-        //{
-        //    try
-        //    {
-        //        int ID = int.Parse(txtEmployeeID.Text);
-        //        string connectString = Properties.Settings.Default.connect_string;
-        //        SqlConnection conn = new SqlConnection(connectString);
-        //        conn.Open();
-        //        string insertQuery = "INSERT INTO equipment (name, empID, description, phone) VALUES('" + txtName.Text + "', '" + ID + "', '" + txtDescEquipment.Text  + "', '" + txtPhoneNum.Text + "')";
-        //        SqlCommand command = new SqlCommand(insertQuery, conn);
-        //        command.ExecuteNonQuery();
-        //        conn.Close();
-        //        MessageBox.Show("Added a record");
-        //    }
-        //    catch(Exception ex)
-        //    {
-        //        MessageBox.Show(ex.ToString());
-        //    }
-        //}
+ 
 
         private void ControlList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -52,7 +36,7 @@ namespace ASasitharan_NETD3200_Lab2
             if(listView !=null)
             {
                 MainContentPanel.Children.Clear();
-
+                
                 if(listView.SelectedItem.Equals(lsviLendOut))
                 {
                     Control controlAddRecord = new AddData();

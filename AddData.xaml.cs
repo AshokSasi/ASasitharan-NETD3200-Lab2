@@ -23,21 +23,80 @@ namespace ASasitharan_NETD3200_Lab2
         {
             InitializeComponent();
         }
-      
 
+     
+        //adds the enetered data to the table if valid
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
+            int employeeID;
             try
             {
-                int ID = int.Parse(txtEmployeeID.Text);
-                string connectString = Properties.Settings.Default.connect_string;
-                SqlConnection conn = new SqlConnection(connectString);
-                conn.Open();
-                string insertQuery = "INSERT INTO equipment (name, empID, description, phone) VALUES('" + txtName.Text + "', '" + ID + "', '" + txtDescEquipment.Text + "', '" + txtPhoneNum.Text + "')";
-                SqlCommand command = new SqlCommand(insertQuery, conn);
-                command.ExecuteNonQuery();
-                conn.Close();
-                MessageBox.Show("Added a record");
+                //run if txtName is not empty
+                if(txtName.Text!=string.Empty)
+                {
+                    //run if employee id is not empty
+                    if (txtEmployeeID.Text != string.Empty)
+                    {
+                        //run if employee id is a number
+                        if (int.TryParse(txtEmployeeID.Text, out employeeID))
+                        {
+                            //run if decription is not empty
+                            if (txtDescEquipment.Text != string.Empty)
+                            {
+                                //run if phone number is not empty
+                                if (txtPhoneNum.Text != string.Empty)
+                                {
+                                    //connect to the database
+                                    string connectString = Properties.Settings.Default.connect_string;
+                                    SqlConnection conn = new SqlConnection(connectString);
+                                    conn.Open();
+                                    string insertQuery = "INSERT INTO equipment (name, empID, description, phone) VALUES('" + txtName.Text + "', '" + employeeID + "', '" + txtDescEquipment.Text + "', '" + txtPhoneNum.Text + "')";
+                                    SqlCommand command = new SqlCommand(insertQuery, conn);
+                                    command.ExecuteNonQuery();
+                                    conn.Close();
+                                    MessageBox.Show("Added a record");
+                                    //clears all of the textboxes
+                                    txtName.Text = "";
+                                    txtPhoneNum.Text = "";
+                                    txtEmployeeID.Text = "";
+                                    txtDescEquipment.Text = "";
+                                    txtName.Focus();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Phone Number cannot be empty.");
+                                    txtPhoneNum.Text = "";
+                                    txtPhoneNum.Focus();
+                                }
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Description cannot be empty.");
+                                txtDescEquipment.Text = "";
+                                txtDescEquipment.Focus();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Employee ID must be numeric.");
+                            txtEmployeeID.Text = "";
+                            txtEmployeeID.Focus();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Employee ID cannot be empty.");
+                        txtEmployeeID.Text = "";
+                        txtEmployeeID.Focus();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Name cannot be empty.");
+                    txtName.Text = "";
+                    txtName.Focus();
+                }
             }
             catch (Exception ex)
             {
