@@ -18,6 +18,7 @@
 
                 </ListViewItem>
                 <ListViewItem x:Name="lsviViewLentOut" Content="View Lent Out" Height="100"></ListViewItem>
+              <ListViewItem x:Name="lsviSearch" Content="Search" Height="100"></ListViewItem>
             </ListView>
         </StackPanel>
         <StackPanel Grid.Column="1" Orientation="Vertical">

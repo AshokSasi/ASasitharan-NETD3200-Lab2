@@ -56,7 +56,12 @@ namespace ASasitharan_NETD3200_Lab2
                     Control controlViewLent = new ViewLent();
                     this.MainContentPanel.Children.Add(controlViewLent);
                 }
-               
+                if (listView.SelectedItem.Equals(lsviSearch))
+                {
+                    //set ViewLent  user control to ocuppy the second grid
+                    Control controlSearch = new Search();
+                    this.MainContentPanel.Children.Add(controlSearch);
+                }
             }
         }
     }
