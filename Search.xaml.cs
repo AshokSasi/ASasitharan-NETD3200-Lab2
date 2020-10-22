@@ -34,6 +34,8 @@ namespace ASasitharan_NETD3200_Lab2
                 conn.Open();
                 //creata a query statement
                 string selectionQuery = "SELECT * FROM equipment WHERE empID = " + txtEmpId.Text;
+
+
                 //create a new command
                 SqlCommand command = new SqlCommand(selectionQuery, conn);
                 //use a data adapter
@@ -41,8 +43,17 @@ namespace ASasitharan_NETD3200_Lab2
                 //link the datatable with the equipment table
                 DataTable dt = new DataTable("equipment");
                 sda.Fill(dt);
-                //display the data from the table
-                searchGrid.ItemsSource = dt.DefaultView;
+                int exists = dt.Rows.Count;
+                if(exists>0)
+                { 
+                   //display the data from the table
+                    searchGrid.ItemsSource = dt.DefaultView;
+                }
+                else
+                {
+                    MessageBox.Show("The Id: " + txtEmpId.Text + " does not exist." );
+                }
+               
             }
             catch (Exception ex)
             {
